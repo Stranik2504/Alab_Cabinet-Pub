@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Выбор сделки";
+}
+<div id="loader" class="loader"></div>
+
+<form id="input-form" asp-controller="Cabinet" method="get" onsubmit="showLoader()">
+    <h1 class="text-center text-font-regular">Введите номер договора</h1>
+    <input type="text" name="orderNumber" class="form-control text-font-regular input-main-form" />
+    <input type="submit" class="btn btn-primary center text-font-regular button-main-form" value="Найти" />
+</form>
+
+<script>
+    function showLoader() {
+        document.getElementById("loader").style.display = "inline-block";
+        document.getElementById("input-form").style.display = "none";
+    }
+</script>

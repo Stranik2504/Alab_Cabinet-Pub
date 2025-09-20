@@ -1,0 +1,272 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  background: #ffffff;
+  /*background: #1c1f1f;*/
+}
+
+footer {
+  background: #f7f8f9;
+}
+
+.bg-menu {
+  background-color: #232323;
+}
+
+.logo-margin {
+  max-width: 1260px;
+}
+
+@font-face {
+  font-family: "CascadiaCode-ExtraLight";
+  src: url("../fonts/CascadiaCode-ExtraLight.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "CascadiaCodePL-Regular";
+  src: url("../fonts/CascadiaCodePL-Regular.ttf") format("truetype");
+}
+
+.text-menu {
+  font-family: "CascadiaCodePL-Regular", Arial, serif;
+}
+
+.text-font-regular {
+  font-family: "CascadiaCodePL-Regular", Arial, serif;
+}
+
+.text-font-extralight {
+  font-family: "CascadiaCode-ExtraLight", Arial, serif;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-footer {
+  fill: #767676;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.icon-footer-vk {
+  height: 40px;
+}
+
+.icon-footer-telegram {
+  height: 30px;
+}
+
+.icon-footer-youtube {
+  height: 30px;
+}
+
+.text-block {
+  white-space: pre-wrap;      /* CSS3 */
+  white-space: -moz-pre-wrap; /* Firefox */
+  white-space: -pre-wrap;     /* Opera <7 */
+  white-space: -o-pre-wrap;   /* Opera 7 */
+  word-wrap: break-word;      /* IE */
+  line-height: 30px;
+}
+
+.text-footer-low {
+  font-size: 12px;
+}
+
+@media screen and (max-width: 980px) {
+  .input-main-form {
+    width: 60%;
+  }
+
+  .button-main-form {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 980px) and (max-width: 1100px) {
+  .input-main-form {
+    width: 50%;
+  }
+
+  .button-main-form {
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .input-main-form {
+    width: 40%;
+  }
+  
+  .button-main-form {
+    width: 30%;
+  }
+}
+
+.input-main-form {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.button-main-form {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.loader {
+  display: none;
+  width: 180px;
+  height: 120px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  --base-color: #FFF;
+}
+.loader::before {
+  content: '';
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  background-color: #232323;
+  background-image: radial-gradient(circle 24px at 54px 54px, var(--base-color) 100%, transparent 0),
+  radial-gradient(circle 12px at 54px 0px, var(--base-color) 100%, transparent 0),
+  radial-gradient(circle 12px at 0px 54px, var(--base-color) 100%, transparent 0),
+  radial-gradient(circle 12px at 108px 54px, var(--base-color) 100%, transparent 0),
+  radial-gradient(circle 12px at 54px 108px, var(--base-color) 100%, transparent 0),
+  radial-gradient(circle 12px at 90px 15px, var(--base-color) 100%, transparent 0),
+  radial-gradient(circle 12px at 90px 15px, var(--base-color) 100%, transparent 0),
+  radial-gradient(circle 12px at 90px 90px, var(--base-color) 100%, transparent 0),
+  radial-gradient(circle 12px at 15px 90px, var(--base-color) 100%, transparent 0),
+  radial-gradient(circle 12px at 15px 15px, var(--base-color) 100%, transparent 0);
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  animation: rotationBack 3s linear infinite;
+}
+.loader::after {
+  content: '';
+  left: 105px;
+  top: 45px;
+  position: absolute;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: #232323;
+  background-image: radial-gradient(circle 15px at 36px 36px, var(--base-color) 100%, transparent 0),
+  radial-gradient(circle 7.5px at 36px 0px, var(--base-color) 100%, transparent 0),
+  radial-gradient(circle 7.5px at 0px 36px, var(--base-color) 100%, transparent 0),
+  radial-gradient(circle 7.5px at 72px 36px, var(--base-color) 100%, transparent 0),
+  radial-gradient(circle 7.5px at 36px 72px, var(--base-color) 100%, transparent 0),
+  radial-gradient(circle 7.5px at 60px 9px, var(--base-color) 100%, transparent 0),
+  radial-gradient(circle 7.5px at 60px 9px, var(--base-color) 100%, transparent 0),
+  radial-gradient(circle 7.5px at 60px 60px, var(--base-color) 100%, transparent 0),
+  radial-gradient(circle 7.5px at 9px 60px, var(--base-color) 100%, transparent 0),
+  radial-gradient(circle 7.5px at 9px 9px, var(--base-color) 100%, transparent 0);
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  animation: rotationBack 4s linear infinite reverse;
+}
+
+@keyframes rotationBack {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}  
+
+.payment-success {
+  background: #67a621;
+}
+
+.payment-miss {
+  background: #c1121f;
+}
+
+.payment-curr {
+  background: #fbbf07;
+}
+
+.payment__sum {
+  color: black;
+  text-align: right;
+  font-weight: bold;
+}
+
+.table-column {
+  margin-right: 40px;
+}
+
+.table-container {
+  max-width: 800px;
+  margin: 10px auto;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.table {
+  width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse; /* Убирает промежутки между границами ячеек */
+}
+
+.tbl {
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.table th, .table td {
+  padding: 0.5rem;
+  /*border: 1px solid #ddd; !* Добавляет границы ячеек *!*/
+}
+
+.table th {
+  background-color: #f2f2f2; /* Цвет фона для заголовков */
+}
+
+.table .button-column {
+  width: calc(1em + 40px);
+}
+
+tr {
+  border-color: black;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f8f9fa; /* Цвет фона футера */
+  padding: 10px 0; /* Отступы внутри футера */
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1); /* Тень для футера */
+}
+
+iframe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}

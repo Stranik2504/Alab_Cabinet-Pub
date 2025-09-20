@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Лаборатория Приключений - @ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/ALab_Cabinet.styles.css" asp-append-version="true"/>
+    
+    <!-- icon -->
+    <link rel="icon" sizes="32x32" href="~/imgs/icon-32x32.png" />
+    <link rel="icon" sizes="192x192" href="~/imgs/icon-192x192.png" />
+    <link rel="apple-touch-icon" href="~/imgs/icon-180x180.png" />
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-menu border-bottom box-shadow mb-3">
+        <div class="container-fluid logo-margin">
+            <a class="navbar-brand" href="https://adventures-lab.ru">
+                <img src="imgs/logo-white.png" alt="Adventures Lab Logo"/>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav" style="margin-left: 10px"> <!--mx-auto -->
+                    <li class="nav-item">
+                        <a class="nav-link text-white text-menu" asp-controller="Home">Главная</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white text-menu" href="/api/">API</a>
+                    </li>
+
+                    @if (User.Identity?.IsAuthenticated ?? false)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-white text-menu" asp-controller="AdminView">Просрочено</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+
+<footer class="border-top footer text-muted">
+    <div class="container">
+        <a href="https://adventures-lab.ru/wp-content/uploads/2020/01/Obrabotka_Pers_Data.pdf" class="btn text-block text-black text-font-regular center">Политика в отношении защиты и обработки персональных данных</a>
+        <div class="text-font-extralight text-block text-footer-low text-center">Copyright © @DateTime.Now.Year | All Rights Reserved | ООО "Создатели Миров" | ОГРН 1197746545127 | ИНН 9731051293</div>
+        <div class="center">
+            <a title="Vk" href="https://vk.com/adventures_lab"><img class="icon-footer icon-footer-vk" alt="vk" src="~/icons/vk.svg"/></a>
+            <a title="Telegram" href="https://t.me/adventureslife"><img class="icon-footer icon-footer-telegram" alt="telegram" src="~/icons/telegram.svg"/></a>
+            <a title="YouTube" href="https://www.youtube.com/channel/UCojn9__pTowux8HaGiia87w"><img class="icon-footer icon-footer-youtube" alt="youtube" src="~/icons/youtube.svg"/></a>
+        </div>
+    </div>
+</footer>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

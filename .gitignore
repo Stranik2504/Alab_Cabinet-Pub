@@ -1,0 +1,10 @@
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+files/
+.idea/
+logs/
+ALab_Cabinet.csproj.DotSettings.user
+ALab_Cabinet.sln.DotSettings.user

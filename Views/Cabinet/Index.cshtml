@@ -1,0 +1,63 @@
+﻿@using ALab_Cabinet.Utils
+@model PaymentsModel
+
+@{
+ViewData["Title"] = "Оплата";
+}
+
+<style>
+    
+</style>
+
+<div id="loader" class="loader"></div>
+
+<div class="container table-container center">
+    <table class="table table-sm tbl">
+        <thead>
+        <tr>
+            <th scope="col" class="table-column text-font-regular">Оплатить до</th>
+            <th scope="col" class="table-column text-font-regular">Сумма</th>
+            <th scope="col" class="button-column"></th>
+        </tr>
+        </thead>
+        <tbody>
+        @{
+            var buttonAdded = false;
+        }
+
+        @foreach (var payment in Model.Payments
+            .OrderBy(p => !p.IsPaid)
+            .ThenBy(p => p.Date.TryParseDateTime(out var date) ? date : DateTime.MaxValue)
+        )
+        {
+            var paymentType = "";
+
+            if (payment.IsPaid)
+                paymentType = "payment-success";
+            else if (payment.Date.TryParseDateTime(out var date) && date < DateTime.Now)
+                paymentType = "payment-miss";
+            else if (!payment.IsPaid && !buttonAdded)
+                paymentType = "payment-curr";
+            else
+                paymentType = "payment";
+
+            <tr class="@paymentType">
+                <td class="text-font-regular">@payment.Date</td>
+                <td class="text-font-regular">@payment.Price руб.</td>
+                <td class="button-column">
+                    @if (!payment.IsPaid && !buttonAdded)
+                    {
+                        <form method="post" asp-action="Pay">
+                            <input asp-for="OrderId" hidden/>
+                            <input type="submit" class="btn btn-success" value="Оплатить" />
+                        </form>
+                        
+                        buttonAdded = true;
+                    }
+                </td>
+            </tr>
+        }
+        </tbody>
+        <caption class="payment__sum text-font-regular">Общая сумма: @Model.Sum руб.</caption>
+    </table>
+</div>

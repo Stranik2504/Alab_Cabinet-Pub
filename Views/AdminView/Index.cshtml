@@ -1,0 +1,34 @@
+﻿@model ALab_Cabinet.Models.ExpiresUserOrderModel?
+
+@{
+    ViewData["Title"] = "Просроченные периоды";
+}
+
+@if (Model == default)
+{
+    <h2 class="center text-font-regular">Нет заказов с просроченным временем</h2>
+    return;
+}
+
+<h1 class="center text-font-regular">Просроченные периоды</h1>
+
+<table class="table table-bordered table-container">
+    <thead>
+        <tr>
+            <th scope="col" class="table-column text-font-regular">Номер заказа</th>
+            <th scope="col" class="table-column text-font-regular">Период</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var period in Model.Periods)
+    {
+        <tr>
+            @if (period.Link != null) { <td><a href="@period.UserLink">@period.OrderId</a></td> }
+            else { <td>@period.OrderId</td> }
+            
+            @if (period.Link != null) { <td><a href="@period.Link">@period.Date - @period.Amount</a></td> }
+            else { <td>@period.Date - @period.Amount</td> }
+        </tr>
+    }
+    </tbody>
+</table>
